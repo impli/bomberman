@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include <stddef.h> // NULL (macos)
 #include <level.h>
+<<<<<<< HEAD
 #include <monster.h>
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 #include <game.h>
 #include <map.h>
 
@@ -10,11 +13,15 @@ struct level {
 	struct map** maps; // array of the level's maps
 	short nb_maps; // nb maps of the level
 	short cur_map; // the current map
+<<<<<<< HEAD
 	int lvl_nb; // the current level
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 };
 
 struct level* level_get_level(int num) {
 	struct level* level = malloc(sizeof(*level));
+<<<<<<< HEAD
 	// Charge les map en mémoire selon le numéro du level
 	switch (num) {
 	case 0:
@@ -36,6 +43,14 @@ struct level* level_get_level(int num) {
 		level->maps[0] = map_load_from_file(MAP_2_1);
 		level->maps[1] = map_load_from_file(MAP_2_2);
 
+=======
+	switch (num) {	//Permet de loader le lvl num
+	case 0:
+		level->nb_maps = 1;
+		level->cur_map = 0;
+		level->maps = malloc(sizeof(*level->maps));
+		level->maps[0] = map_get_default();
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 		return level;
 		break;
 	}
@@ -46,6 +61,7 @@ struct map* level_get_curr_map(struct level* level) {
 	return level->maps[level->cur_map];
 }
 
+<<<<<<< HEAD
 int level_get_lvl_nb(struct level* level){
 	return level->lvl_nb;
 }
@@ -58,6 +74,8 @@ void level_set_cur_map(struct level* level, int i){
 	level->cur_map = i;
 }
 
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 struct map* level_get_map(struct level* level, int num) {
 	assert(num <= level->nb_maps);
 	return level->maps[num];

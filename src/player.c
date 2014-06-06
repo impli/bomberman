@@ -5,15 +5,19 @@
 #include <sprite.h>
 #include <window.h>
 #include <misc.h>
+<<<<<<< HEAD
 #include <level.h>
 #include <game.h>
 #include <map.h>
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 #include <constant.h>
 
 struct player {
 	int x, y;
 	enum way current_way;
 	int nb_bomb;
+<<<<<<< HEAD
 	int nb_life;
 	int range;
 	int invincibleTimer;
@@ -22,17 +26,25 @@ struct player {
 };
 
 struct player* player_init(int bomb_number, int life_number, int range_number) {
+=======
+};
+
+struct player* player_init(int bomb_number) {
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 	struct player* player = malloc(sizeof(*player));
 	if (!player)
 		error("Memory error");
 
 	player->current_way = SOUTH;
 	player->nb_bomb = bomb_number;
+<<<<<<< HEAD
 	player->nb_life = life_number;
 	player->range = range_number;
 	player->invincibleTimer = 0;
 	player->dead = 0;
 	player->key=0;
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 
 	return player;
 }
@@ -42,6 +54,7 @@ void player_free(struct player* player) {
 	free(player);
 }
 
+<<<<<<< HEAD
 int player_get_dead(struct player* player) {
 	assert(player != NULL);
 	return player->dead;
@@ -67,6 +80,8 @@ void player_set_invincible(struct player* player, int n) {
 	player->invincibleTimer = n;
 }
 
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 int player_get_x(struct player* player) {
 	assert(player != NULL);
 	return player->x;
@@ -82,26 +97,33 @@ void player_set_current_way(struct player* player, enum way way) {
 	player->current_way = way;
 }
 
+<<<<<<< HEAD
 int player_get_key(struct player* player){
 	assert(player);
 	return player->key;
 }
 
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 int player_get_nb_bomb(struct player* player) {
 	assert(player);
 	return player->nb_bomb;
 }
 
+<<<<<<< HEAD
 int player_get_nb_life(struct player* player) {
 	assert(player);
 	return player->nb_life;
 }
 
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 void player_inc_nb_bomb(struct player* player) {
 	assert(player);
 	player->nb_bomb += 1;
 }
 
+<<<<<<< HEAD
 void player_inc_nb_life(struct player* player) {
 	assert(player);
 	player->nb_life += 1;
@@ -122,16 +144,21 @@ void player_dec_range(struct player* player) {
 	player->range -= 1;
 }
 
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 void player_dec_nb_bomb(struct player* player) {
 	assert(player);
 	player->nb_bomb -= 1;
 }
 
+<<<<<<< HEAD
 void player_dec_nb_life(struct player* player) {
 	assert(player);
 	player->nb_life -= 1;
 }
 
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 void player_from_map(struct player* player, struct map* map) {
 	assert(player);
 	assert(map);
@@ -147,11 +174,16 @@ void player_from_map(struct player* player, struct map* map) {
 	}
 }
 
+<<<<<<< HEAD
 static int player_move_aux(struct game* game, struct player* player, struct map* map, int x, int y) {
+=======
+static int player_move_aux(struct player* player, struct map* map, int x, int y) {
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 
 	if (!map_is_inside(map, x, y))
 		return 0;
 
+<<<<<<< HEAD
 	int i=0;
 	switch (map_get_cell_type(map, x, y)) {
 	case CELL_SCENERY:
@@ -246,11 +278,30 @@ static int player_move_aux(struct game* game, struct player* player, struct map*
 			player->invincibleTimer = 60;
 		}
 		return 0;
+=======
+	switch (map_get_cell_type(map, x, y)) {
+	case CELL_SCENERY:
+		return 1;
+		break;
+
+	case CELL_CASE:
+		return 1;
+		break;
+
+	case CELL_BONUS:
+		break;
+
+	case CELL_GOAL:
+		break;
+
+	case CELL_MONSTER:
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 		break;
 
 	case CELL_PLAYER:
 		break;
 
+<<<<<<< HEAD
 	case CELL_BOMB:
 		return 0;
 		break;
@@ -275,6 +326,8 @@ static int player_move_aux(struct game* game, struct player* player, struct map*
 		return 1;
 		break;
 
+=======
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 	default:
 		break;
 	}
@@ -283,39 +336,59 @@ static int player_move_aux(struct game* game, struct player* player, struct map*
 	return 1;
 }
 
+<<<<<<< HEAD
 int player_move(struct game* game) {
 
 	struct player* player = game_get_player(game);
 	struct map* map = level_get_curr_map(game_get_curr_level(game));
 
+=======
+int player_move(struct player* player, struct map* map) {
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 	int x = player->x;
 	int y = player->y;
 	int move = 0;
 
 	switch (player->current_way) {
 	case NORTH:
+<<<<<<< HEAD
 		if (player_move_aux(game, player, map, x, y - 1)) {
+=======
+		if (player_move_aux(player, map, x, y - 1)) {
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 			player->y--;
 			move = 1;
 		}
 		break;
 
 	case SOUTH:
+<<<<<<< HEAD
 		if (player_move_aux(game, player, map, x, y + 1)) {
+=======
+		if (player_move_aux(player, map, x, y + 1)) {
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 			player->y++;
 			move = 1;
 		}
 		break;
 
 	case WEST:
+<<<<<<< HEAD
 		if (player_move_aux(game, player, map, x - 1, y)) {
+=======
+		if (player_move_aux(player, map, x - 1, y)) {
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 			player->x--;
 			move = 1;
 		}
 		break;
 
 	case EAST:
+<<<<<<< HEAD
 		if (player_move_aux(game, player, map, x + 1, y)) {
+=======
+		if (player_move_aux(player, map, x + 1, y)) {
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 			player->x++;
 			move = 1;
 		}
@@ -323,8 +396,12 @@ int player_move(struct game* game) {
 	}
 
 	if (move) {
+<<<<<<< HEAD
 		if ( map_get_cell_type(map, x, y) != CELL_BOMB && map_get_cell_type(map, x, y) != CELL_DOOR )
 			map_set_cell_type(map, x, y, CELL_EMPTY);
+=======
+		map_set_cell_type(map, x, y, CELL_EMPTY);
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 		map_set_cell_type(map, player->x, player->y, CELL_PLAYER);
 	}
 	return move;
@@ -332,6 +409,7 @@ int player_move(struct game* game) {
 
 void player_display(struct player* player) {
 	assert(player);
+<<<<<<< HEAD
 	if (player_get_invincibleTimer(player)>0){
 		window_display_image(sprite_get_inv_player(player->current_way),
 				player->x * SIZE_BLOC, player->y * SIZE_BLOC);
@@ -342,5 +420,9 @@ void player_display(struct player* player) {
 	}
 	if (player_get_invincibleTimer(player) > 0)
 			player_dec_invincibleTimer(player);
+=======
+	window_display_image(sprite_get_player(player->current_way),
+			player->x * SIZE_BLOC, player->y * SIZE_BLOC);
+>>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 }
 
