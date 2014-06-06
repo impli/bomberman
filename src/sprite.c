@@ -10,15 +10,12 @@
 #define MAP_DOOR		"sprite/door.png"
 #define MAP_CLOSED_DOOR	"sprite/closed_door.png"
 
-<<<<<<< HEAD
 #define MAP_FLAG	"sprite/flag.png"
 #define MAP_WOMAN	"sprite/bomberwoman.png"
 
 #define MAP_NEXT	"sprite/next_level.png"
 #define MAP_END		"sprite/the_end.png"
 
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 // Scenery elements
 #define MAP_STONE		"sprite/stone.png"
 #define MAP_TREE        "sprite/tree.png"
@@ -26,11 +23,7 @@
 // Sprites of Banner
 #define BANNER_LINE		"sprite/banner_line.png"
 #define BANNER_LIFE		"sprite/banner_life.png"
-<<<<<<< HEAD
 #define BANNER_BOMB		"sprite/banner_bomb.png"
-=======
-#define BANNER_BOMB		"sprite/bomb3.png"
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 #define BANNER_RANGE	"sprite/banner_range.png"
 #define BANNER_0		"sprite/banner_0.jpg"
 #define BANNER_1		"sprite/banner_1.jpg"
@@ -43,7 +36,6 @@
 #define BANNER_8		"sprite/banner_8.jpg"
 #define BANNER_9		"sprite/banner_9.jpg"
 
-<<<<<<< HEAD
 #define GROUND	"sprite/ground.png"
 
 // Sprite of pause
@@ -57,20 +49,15 @@
 #define BOMB_TTL000		"sprite/explosion0.png"
 #define BOMB_TTL00		"sprite/explosion1.png"
 #define BOMB_TTL0		"sprite/explosion2.png"
-=======
-// Sprites of Bombs
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 #define BOMB_TTL1       "sprite/bomb1.png"
 #define BOMB_TTL2       "sprite/bomb2.png"
 #define BOMB_TTL3       "sprite/bomb3.png"
 #define BOMB_TTL4       "sprite/bomb4.png"
-<<<<<<< HEAD
 #define BOMB_TTL5       "sprite/bomb5.png"
 #define BOMB_TTL6       "sprite/bomb6.png"
 #define BOMB_TTL7       "sprite/bomb7.png"
 #define BOMB_TTL8       "sprite/bomb8.png"
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
+
 
 // Sprites of Bonus
 #define IMG_BONUS_BOMB_RANGE_INC  "sprite/bonus_bomb_range_inc.png"
@@ -84,7 +71,6 @@
 #define PLAYER_RIGHT    "sprite/player_right.png"
 #define PLAYER_DOWN     "sprite/player_down.png"
 
-<<<<<<< HEAD
 #define PLAYER_INV_LEFT     "sprite/player_inv_left.png"
 #define PLAYER_INV_UP       "sprite/player_inv_up.png"
 #define PLAYER_INV_RIGHT    "sprite/player_inv_right.png"
@@ -96,8 +82,6 @@
 #define MONSTER_RIGHT    "sprite/monster_right.png"
 #define MONSTER_DOWN     "sprite/monster_down.png"
 
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 // banner
 SDL_Surface* numbers[10];
 SDL_Surface* banner_life;
@@ -105,7 +89,6 @@ SDL_Surface* banner_bomb;
 SDL_Surface* banner_range;
 SDL_Surface* banner_line;
 
-<<<<<<< HEAD
 // pause
 SDL_Surface* pause;
 
@@ -113,8 +96,6 @@ SDL_Surface* pause;
 SDL_Surface* menu_up;
 SDL_Surface* menu_down;
 
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 // map
 SDL_Surface* box;
 SDL_Surface* goal;
@@ -123,7 +104,6 @@ SDL_Surface* door;
 SDL_Surface* closed_door;
 SDL_Surface* stone;
 SDL_Surface* tree;
-<<<<<<< HEAD
 SDL_Surface* range_inc;
 SDL_Surface* range_dec;
 SDL_Surface* nb_inc;
@@ -134,17 +114,10 @@ SDL_Surface* ground;
 
 SDL_Surface* next;
 SDL_Surface* end;
-=======
-
-// bonus
-#define NB_BONUS 4
-SDL_Surface* bonus[NB_BONUS];
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 
 // player
 SDL_Surface* player_img[4];
 
-<<<<<<< HEAD
 SDL_Surface* player_inv_img[4];
 
 // monster
@@ -171,8 +144,6 @@ void menu_unload(){
 	SDL_FreeSurface(menu_down);
 }
 
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 void banner_load() {
 	// numbers imgs
 	numbers[0] = load_image(BANNER_0);
@@ -214,7 +185,6 @@ void map_load() {
 	stone = load_image(MAP_STONE);
 	door = load_image(MAP_DOOR);
 	closed_door = load_image(MAP_CLOSED_DOOR);
-<<<<<<< HEAD
 	range_inc = load_image(IMG_BONUS_BOMB_RANGE_INC);
 	range_dec = load_image(IMG_BONUS_BOMB_RANGE_DEC);
 	nb_inc = load_image(IMG_BONUS_BOMB_NB_INC);
@@ -224,8 +194,6 @@ void map_load() {
 	next = load_image(MAP_NEXT);
 	end = load_image(MAP_END);
 	ground = load_image(GROUND);
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 }
 
 void map_unload() {
@@ -236,7 +204,6 @@ void map_unload() {
 	SDL_FreeSurface(stone);
 	SDL_FreeSurface(door);
 	SDL_FreeSurface(closed_door);
-<<<<<<< HEAD
 	SDL_FreeSurface(range_inc);
 	SDL_FreeSurface(range_dec);
 	SDL_FreeSurface(nb_inc);
@@ -246,20 +213,6 @@ void map_unload() {
 	SDL_FreeSurface(next);
 	SDL_FreeSurface(end);
 	SDL_FreeSurface(ground);
-=======
-}
-
-void bonus_load() {
-	bonus[BONUS_BOMB_RANGE_INC] = load_image(IMG_BONUS_BOMB_RANGE_INC);
-	bonus[BONUS_BOMB_RANGE_DEC] = load_image(IMG_BONUS_BOMB_RANGE_DEC);
-	bonus[BONUS_BOMB_NB_INC] = load_image(IMG_BONUS_BOMB_NB_INC);
-	bonus[BONUS_BOMB_NB_DEC] = load_image(IMG_BONUS_BOMB_NB_DEC);
-}
-
-void bonus_unload() {
-	for (int i = 0; i < NB_BONUS; i++)
-		SDL_FreeSurface(bonus[i]);
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 }
 
 void player_load() {
@@ -267,7 +220,6 @@ void player_load() {
 	player_img[EAST] = load_image(PLAYER_RIGHT);
 	player_img[NORTH] = load_image(PLAYER_UP);
 	player_img[SOUTH] = load_image(PLAYER_DOWN);
-<<<<<<< HEAD
 	player_inv_img[WEST] = load_image(PLAYER_INV_LEFT);
 	player_inv_img[EAST] = load_image(PLAYER_INV_RIGHT);
 	player_inv_img[NORTH] = load_image(PLAYER_INV_UP);
@@ -311,34 +263,20 @@ void monster_unload() {
 	for (int i = 0; i < 4; i++){
 		SDL_FreeSurface(monster_img[i]);
 	}
-=======
-}
-
-void player_unload() {
-	for (int i = 0; i < 4; i++)
-		SDL_FreeSurface(player_img[i]);
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 }
 
 void sprite_load() {
 	map_load();
-<<<<<<< HEAD
 	pause_load();
 	menu_load();
 	banner_load();
 	player_load();
 	monster_load();
 	bomb_load();
-=======
-	bonus_load();
-	banner_load();
-	player_load();
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 }
 
 void sprite_free() {
 	map_unload();
-<<<<<<< HEAD
 	pause_unload();
 	menu_unload();
 	banner_unload();
@@ -349,15 +287,6 @@ void sprite_free() {
 
 SDL_Surface* sprite_get_number(short number) {
 	assert(number >= 0 && number <= 9);
-=======
-	bonus_unload();
-	banner_unload();
-	player_unload();
-}
-
-SDL_Surface* sprite_get_number(short number) {
-	assert(number >= 0 && number < 9);
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 	return numbers[number];
 }
 
@@ -366,7 +295,6 @@ SDL_Surface* sprite_get_player(enum way direction) {
 	return player_img[direction];
 }
 
-<<<<<<< HEAD
 SDL_Surface* sprite_get_inv_player(enum way direction) {
 	assert(player_inv_img[direction]);
 	return player_inv_img[direction];
@@ -382,8 +310,6 @@ SDL_Surface* sprite_get_bomb(enum state state) {
 	return bomb_img[state];
 }
 
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 SDL_Surface* sprite_get_banner_life() {
 	assert(banner_life);
 	return banner_life;
@@ -394,7 +320,6 @@ SDL_Surface* sprite_get_banner_bomb() {
 	return banner_bomb;
 }
 
-<<<<<<< HEAD
 SDL_Surface* sprite_get_pause() {
 	assert(pause);
 	return pause;
@@ -433,8 +358,6 @@ SDL_Surface* sprite_get_woman() {
 	return woman;
 }
 
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 SDL_Surface* sprite_get_banner_line() {
 	assert(banner_line);
 	return banner_line;
@@ -445,14 +368,6 @@ SDL_Surface* sprite_get_banner_range() {
 	return banner_range;
 }
 
-<<<<<<< HEAD
-=======
-SDL_Surface* sprite_get_bonus(bonus_type_t bonus_type) {
-	assert(bonus[bonus_type]);
-	return bonus[bonus_type];
-}
-
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 SDL_Surface* sprite_get_tree() {
 	assert(tree);
 	return tree;
@@ -482,7 +397,6 @@ SDL_Surface* sprite_get_closed_door() {
 	assert(closed_door);
 	return closed_door;
 }
-<<<<<<< HEAD
 
 SDL_Surface* sprite_get_range_inc() {
 	assert(range_inc);
@@ -503,5 +417,3 @@ SDL_Surface* sprite_get_nb_dec() {
 	assert(nb_dec);
 	return nb_dec;
 }
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3

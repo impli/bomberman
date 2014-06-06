@@ -1,25 +1,17 @@
 #ifndef CONSTANT_H_
 #define CONSTANT_H_
 
-<<<<<<< HEAD
-#define WINDOW_NAME "[PG110] Bowser Jr. 2014"
-=======
 #define WINDOW_NAME "[PG110] Bomberman 2014"
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 
 // Size (# of pixels) of a cell of the map
 #define SIZE_BLOC       40
 
-<<<<<<< HEAD
 #define MAP_1_1             "data/map_1_1.lvl"
 #define MAP_1_2             "data/map_1_2.lvl"
 #define MAP_1_3             "data/map_1_3.lvl"
 #define MAP_2_1             "data/map_2_1.lvl"
 #define MAP_2_2             "data/map_2_2.lvl"
 
-
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 // Size (# of pixels) of banner
 #define LINE_HEIGHT			4
 #define BANNER_HEIGHT		40
@@ -38,7 +30,6 @@ typedef enum way {
 	EAST //3
 } way_t;
 
-<<<<<<< HEAD
 typedef enum state {
 	STATE0 = 0,
 	STATE1, // 1
@@ -53,6 +44,4 @@ typedef enum state {
 	STATE10
 } state_t;
 
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 #endif /* CONSTANT */

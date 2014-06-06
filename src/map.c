@@ -1,7 +1,6 @@
 #include <SDL/SDL_image.h>
 #include <assert.h>
 #include <stdio.h>
-<<<<<<< HEAD
 #include <stdlib.h>
 #include <time.h>
 
@@ -10,12 +9,6 @@
 #include <constant.h>
 #include <list.h>
 #include <monster.h>
-=======
-#include <time.h>
-
-#include <map.h>
-#include <constant.h>
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 #include <misc.h>
 #include <sprite.h>
 #include <window.h>
@@ -24,11 +17,8 @@ struct map {
 	int width;
 	int height;
 	char* grid;
-<<<<<<< HEAD
 	struct list* bomb_list;
 	struct list* monster_list;
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 };
 
 #define CELL(i,j) (i +  map->width * j)
@@ -49,12 +39,9 @@ struct map* map_new(int width, int height)
 		error("map_new : malloc grid failed");
 	}
 
-<<<<<<< HEAD
 	map->bomb_list = list_new();
 	map->monster_list = list_new();
 
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 	// Grid cleaning
 	int i, j;
 	for (i = 0; i < width; i++)
@@ -67,24 +54,17 @@ struct map* map_new(int width, int height)
 int map_is_inside(struct map* map, int x, int y)
 {
 	assert(map);
-<<<<<<< HEAD
 	if ( 0<=x && x<=(map_get_width(map)-1) && 0<=y && y<=(map_get_height(map)-1) )
 		return 1;
 	return 0;
-=======
-	return 1;
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 }
 
 void map_free(struct map* map)
 {
 	if (map == NULL )
 		return;
-<<<<<<< HEAD
 	map->bomb_list=list_delete(map->bomb_list);
 	map->monster_list = list_delete(map->monster_list);
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 	free(map->grid);
 	free(map);
 }
@@ -107,7 +87,6 @@ enum cell_type map_get_cell_type(struct map* map, int x, int y)
 	return map->grid[CELL(x,y)] & 15;
 }
 
-<<<<<<< HEAD
 enum cell_type map_get_cell(struct map* map, int x, int y)
 {
 	assert(map && map_is_inside(map, x, y));
@@ -151,15 +130,12 @@ int map_get_goal_type(struct map* map, int x, int y)
 	return ((map->grid[CELL(x,y)]) >> 4);
 }
 
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 void map_set_cell_type(struct map* map, int x, int y, enum cell_type type)
 {
 	assert(map && map_is_inside(map, x, y));
 	map->grid[CELL(x,y)] = type;
 }
 
-<<<<<<< HEAD
 struct list* map_get_bombs(struct map* map)
 {
 	assert(map);
@@ -219,14 +195,10 @@ void map_case_explosion(struct map* map, int x, int y)
 		map_set_cell_type(map, x, y, (CELL_BONUS|(NB_DEC << 4)));
 }
 
-
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 void display_bonus(struct map* map, int x, int y, char type)
 {
 	// bonus is encoded with the 4 most significant bits
 	switch (type >> 4) {
-<<<<<<< HEAD
 	case RANGE_INC:
 		window_display_image(sprite_get_range_inc(), x, y);
 		break;
@@ -244,22 +216,6 @@ void display_bonus(struct map* map, int x, int y, char type)
 		break;
 	case LIFE :
 		window_display_image(sprite_get_banner_life(), x, y);
-=======
-	case BONUS_BOMB_RANGE_INC:
-		window_display_image(sprite_get_bonus(BONUS_BOMB_RANGE_INC), x, y);
-		break;
-
-	case BONUS_BOMB_RANGE_DEC:
-		window_display_image(sprite_get_bonus(BONUS_BOMB_RANGE_DEC), x, y);
-		break;
-
-	case BONUS_BOMB_NB_INC:
-		window_display_image(sprite_get_bonus(BONUS_BOMB_NB_INC), x, y);
-		break;
-
-	case BONUS_BOMB_NB_DEC:
-		window_display_image(sprite_get_bonus(BONUS_BOMB_RANGE_DEC), x, y);
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 		break;
 	}
 }
@@ -277,7 +233,6 @@ void display_scenery(struct map* map, int x, int  y, char type)
 	}
 }
 
-<<<<<<< HEAD
 void display_goal(struct map* map, int x, int  y, char type)
 {
 	switch (type >> 4) { // sub-types are encoded with the 4 most significant bits
@@ -304,8 +259,6 @@ void display_door(struct map* map, int x, int  y, char type)
 	}
 }
 
-=======
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 void map_display(struct map* map)
 {
 	assert(map != NULL);
@@ -332,7 +285,6 @@ void map_display(struct map* map)
 			case CELL_KEY:
 				window_display_image(sprite_get_key(), x, y);
 				break;
-<<<<<<< HEAD
 			case CELL_GOAL:
 				display_goal(map, x, y, type);
 				break;
@@ -372,41 +324,5 @@ struct map* map_load_from_file(char* data) {
 	fclose(file);
 
 	monster_from_map(map);
-=======
-			case CELL_DOOR:
-				window_display_image(sprite_get_door(), x, y);
-				break;
-			case CELL_CLOSED_DOOR:
-				window_display_image(sprite_get_closed_door(), x, y);
-				break;
-			}
-		}
-
-	}
-}
-
-struct map* map_get_default(void)
-{
-	struct map* map = map_new(MAP_WIDTH, MAP_HEIGHT);
-
-	char themap[MAP_WIDTH * MAP_HEIGHT] = {
-			CELL_PLAYER, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY,
-			CELL_STONE, CELL_STONE, CELL_STONE, CELL_EMPTY, CELL_STONE, CELL_EMPTY, CELL_STONE, CELL_STONE, CELL_STONE, CELL_STONE, CELL_EMPTY, CELL_EMPTY,
-			CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_STONE, CELL_CASE, CELL_STONE, CELL_EMPTY, CELL_EMPTY, CELL_STONE, CELL_EMPTY, CELL_EMPTY,
-			CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_STONE, CELL_CASE, CELL_STONE, CELL_EMPTY, CELL_EMPTY, CELL_STONE, CELL_EMPTY, CELL_EMPTY,
-			CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_STONE, CELL_CASE, CELL_STONE, CELL_EMPTY, CELL_EMPTY, CELL_STONE, CELL_EMPTY, CELL_EMPTY,
-			CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_STONE, CELL_STONE, CELL_STONE, CELL_EMPTY, CELL_EMPTY, CELL_STONE, CELL_EMPTY, CELL_EMPTY,
-			CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY , CELL_EMPTY, CELL_EMPTY, CELL_STONE,  CELL_EMPTY, CELL_EMPTY,
-			CELL_EMPTY, CELL_TREE, CELL_CASE, CELL_TREE, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY,  CELL_EMPTY, CELL_STONE,  CELL_EMPTY, CELL_EMPTY,
-			CELL_EMPTY, CELL_TREE, CELL_TREE, CELL_TREE, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY,  CELL_STONE,  CELL_EMPTY, CELL_EMPTY,
-			CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_STONE,  CELL_EMPTY, CELL_EMPTY,
-			CELL_CASE, CELL_STONE, CELL_STONE, CELL_STONE, CELL_STONE, CELL_STONE, CELL_STONE, CELL_STONE, CELL_STONE, CELL_STONE,  CELL_CASE_LIFE, CELL_EMPTY,
-			CELL_MONSTER,  CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_EMPTY, CELL_MONSTER
-		};
-
-	for (int i = 0; i < MAP_WIDTH * MAP_HEIGHT; i++)
-		map->grid[i] = themap[i];
-
->>>>>>> 9cdb4d406aae54b9c6f500cb75d562a688f7bcb3
 	return map;
 }
