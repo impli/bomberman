@@ -32,6 +32,4 @@ void game_change_level(struct game* game, int i);
 // update
 int game_update(struct game* game);
 
-void game_save(struct game* game);
-
 #endif /* GAME_H_ */

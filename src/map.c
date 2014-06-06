@@ -175,7 +175,7 @@ void map_case_explosion(struct map* map, int x, int y)
 {
 	assert(map && map_is_inside(map, x, y));
 
-	int r = rand()%(99);							// Picks a random number between 0 and 99
+	int r = rand()%(99);	// Picks a random number between 0 and 99
 
 	if(0 <= r && r < 30)
 		map_set_cell_type(map, x, y, CELL_EMPTY);
@@ -294,7 +294,6 @@ void map_display(struct map* map)
 				break;
 			}
 		}
-
 	}
 }
 

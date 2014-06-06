@@ -10,11 +10,12 @@ struct level {
 	struct map** maps; // array of the level's maps
 	short nb_maps; // nb maps of the level
 	short cur_map; // the current map
-	int lvl_nb;
+	int lvl_nb; // the current level
 };
 
 struct level* level_get_level(int num) {
 	struct level* level = malloc(sizeof(*level));
+	// Charge les map en mémoire selon le numéro du level
 	switch (num) {
 	case 0:
 		level->lvl_nb = 0;
